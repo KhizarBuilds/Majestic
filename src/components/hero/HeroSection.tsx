@@ -18,83 +18,84 @@ export default function HeroSection() {
       className="relative min-h-screen w-full bg-[#030102] flex flex-col justify-between overflow-hidden pt-28 sm:pt-32 pb-8 sm:pb-12 px-6 sm:px-12 lg:px-20 selection:bg-[#800020] selection:text-white"
     >
       {/* =========================================================================
-          LEFT ATMOSPHERIC COSMIC ENVIRONMENT LAYER (Extended Cosmic Galaxy & Terrain)
-          Immerses the whole hero section so the text is backed by deep space, nebula & landscape
+          ATMOSPHERIC COSMIC ENVIRONMENT & MONOLITH LAYERS
+          Smooth, seamless, gap-free composition with hero_bg_left and majestic_ruby_monolith
          ========================================================================= */}
-      <div className="absolute left-0 top-0 bottom-0 w-full lg:w-[65%] xl:w-[70%] h-full pointer-events-none select-none overflow-hidden z-0">
-        <div className="relative w-full h-full">
+      <div className="absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden z-0">
+        {/* Left Layer: Extended Cosmic Starscape, Galaxy & Terrain (hero_bg_left.jpg) */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-full lg:w-[62%] xl:w-[60%] h-full z-0 overflow-hidden"
+          style={{
+            maskImage: "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+          }}
+        >
           <Image
             src="/images/hero_bg_left.jpg"
-            alt="Cosmic Environment Planetary Background"
+            alt="Cosmic Planetary Background"
             fill
-            sizes="(max-width: 1024px) 100vw, 70vw"
             priority
+            quality={95}
             draggable={false}
             className="object-cover object-left filter contrast-[1.05] brightness-[0.92]"
           />
         </div>
 
-        {/* Cinematic Scrim - allows galaxy, planets, stars and rocky terrain to show through with rich contrast for editorial typography */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030102]/65 via-[#030102]/45 to-[#030102] pointer-events-none" />
-
-        {/* Top & Bottom Vignettes for Seamless Edge Blending */}
-        <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-[#030102] to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#030102] to-transparent pointer-events-none" />
-      </div>
-
-      {/* =========================================================================
-          ATMOSPHERIC BACKGROUND & VISUAL LAYER
-          Monumental Glowing Ruby Obsidian Monolith on the right side
-         ========================================================================= */}
-      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[62%] xl:w-[58%] h-full pointer-events-none select-none overflow-hidden flex items-center justify-center lg:justify-end z-10">
-        {/* Breathing Float Animation for the Artifact */}
-        {mounted ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full h-full lg:translate-x-16 xl:translate-x-24 2xl:translate-x-32"
-          >
+        {/* Right Layer: Breathing Animated Floating Ruby Monolith Crystal Artifact */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-full lg:w-[65%] xl:w-[62%] h-full z-1 overflow-hidden flex items-center justify-end"
+          style={{
+            maskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 100%)",
+            WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 100%)",
+          }}
+        >
+          {mounted ? (
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 8, ease: "easeInOut", repeat: Infinity }}
-              className="relative w-full h-full"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full h-full lg:translate-x-12 xl:translate-x-20 2xl:translate-x-28"
             >
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 8, ease: "easeInOut", repeat: Infinity }}
+                className="relative w-full h-full"
+              >
+                <Image
+                  src="/images/majestic_ruby_monolith.jpg"
+                  alt="Majestic Ruby Monolith Artifact"
+                  fill
+                  priority
+                  quality={95}
+                  draggable={false}
+                  className="object-cover object-center lg:object-right filter contrast-[1.08] brightness-[0.98]"
+                />
+              </motion.div>
+            </motion.div>
+          ) : (
+            <div className="relative w-full h-full lg:translate-x-12 xl:translate-x-20 2xl:translate-x-28">
               <Image
                 src="/images/majestic_ruby_monolith.jpg"
                 alt="Majestic Ruby Monolith Artifact"
                 fill
-                sizes="(max-width: 1024px) 100vw, 65vw"
                 priority
+                quality={95}
                 draggable={false}
                 className="object-cover object-center lg:object-right filter contrast-[1.08] brightness-[0.98]"
               />
-            </motion.div>
-          </motion.div>
-        ) : (
-          <div className="relative w-full h-full lg:translate-x-16 xl:translate-x-24 2xl:translate-x-32">
-            <Image
-              src="/images/majestic_ruby_monolith.jpg"
-              alt="Majestic Ruby Monolith Artifact"
-              fill
-              sizes="(max-width: 1024px) 100vw, 65vw"
-              priority
-              draggable={false}
-              className="object-cover object-center lg:object-right filter contrast-[1.08] brightness-[0.98]"
-            />
-          </div>
-        )}
+            </div>
+          )}
+        </div>
 
-        {/* Seamless Blending Vignettes */}
-        {/* Left Horizontal Vignette - melts background into solid black for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030102] via-[#030102]/85 lg:via-[#030102]/40 to-transparent pointer-events-none" />
+        {/* Cinematic Scrim - Enhances contrast for left typography while keeping stars, galaxy & terrain glowing */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030102]/65 via-[#030102]/25 to-transparent pointer-events-none z-10" />
 
-        {/* Top & Bottom Vignettes */}
-        <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-[#030102] to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#030102] to-transparent pointer-events-none" />
+        {/* Top & Bottom Vignettes for Seamless Edge Blending */}
+        <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-[#030102] via-[#030102]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#030102] via-[#030102]/60 to-transparent pointer-events-none z-10" />
 
         {/* Subtle Ambient Crimson Radial Glow behind monolith */}
-        <div className="absolute top-1/2 left-[72%] xl:left-[76%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(128,0,32,0.22)_0%,transparent_70%)] blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-[74%] xl:left-[78%] -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-[radial-gradient(circle,rgba(128,0,32,0.25)_0%,transparent_70%)] blur-3xl pointer-events-none z-10" />
       </div>
 
       {/* =========================================================================
