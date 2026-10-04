@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #050505;
+  --bg-secondary: #080808;
+  --bg-tertiary: #0d0d0d;
+  --bg-card: #141414;
+  --bg-elevated: #1b1b1b;
+  --border-dark: #2a2a2a;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-mid: rgba(255, 255, 255, 0.12);
+  --text-muted: #666666;
+  --text-secondary: #909090;
+  --text-body: #c8c8c8;
+  --text-primary: #f2f2f2;
+}
+
+@theme inline {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-border-dark: var(--border-dark);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-mid: var(--border-mid);
+  --color-text-muted: var(--text-muted);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-body: var(--text-body);
+  --color-text-primary: var(--text-primary);
+  --font-display: var(--font-syne);
+  --font-serif: var(--font-cinzel);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #050505;
+  color: #f2f2f2;
+  color-scheme: dark;
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: #050505;
+  color: #c8c8c8;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #f2f2f2;
+  color: #050505;
+}
+
+/* Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}
+
+/* Metallic typographic gradient (white to silver, quiet luxury) */
+.text-silver {
+  background: linear-gradient(180deg, #f2f2f2 0%, #c8c8c8 55%, #909090 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-silver-muted {
+  background: linear-gradient(180deg, #c8c8c8 0%, #909090 70%, #666666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Refined hairline border rule */
+.hairline {
+  border-color: rgba(255, 255, 255, 0.07);
+}
